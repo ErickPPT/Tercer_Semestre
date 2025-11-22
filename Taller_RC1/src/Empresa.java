@@ -25,7 +25,7 @@ public class Empresa {
         return null;
     }
 
-    public int buscarIndicePorId(int id) {
+    public int buscarIndiceporId(int id) {
         for (int i = 0; i < productos.size(); i++) {
             if (productos.get(i).getID() == id) {
                 return i;
@@ -107,7 +107,7 @@ public class Empresa {
     }
 
     public void eliminar(int Id){
-        int indice=buscarIndicePorId(Id);
+        int indice=buscarIndiceporId(Id);
         if (indice==-1) {
             System.out.println("Producto no encontrado");
             return;
@@ -118,7 +118,7 @@ public class Empresa {
     }
 
     public void editar(int Id, Scanner sc){
-        int indice=buscarIndicePorId(Id);
+        int indice=buscarIndiceporId(Id);
         if (indice==-1) {
             System.out.println("Producto no encontrado");
             return;
@@ -176,3 +176,4 @@ public class Empresa {
 
     }
 }
+
