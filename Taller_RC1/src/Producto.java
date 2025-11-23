@@ -2,28 +2,30 @@ public abstract class Producto {
     /** Creacion de los atributos*/
     private int ID;
     private String nombre;
-    private double precio;
     private double precioCompra;
+    private double precio;
+    private int espacioMaximo;
     private int cantidadDisponible;
     private int cantidadMinima;
     private int diaReabastecimiento;
     private int tiempoEntrega;
-    private int espacioMaximo;
     private int tipo;
 
-    public Producto(int ID, String nombre, double precio, double precioCompra, int cantidadDisponible, int cantidadMinima, int diaReabastecimiento, int tiempoEntrega, int espacioMaximo,int tipo) {
+    /** Constructor*/
+    public Producto(int ID, String nombre, double precioCompra, double precio, int espacioMaximo, int cantidadDisponible, int cantidadMinima, int diaReabastecimiento, int tiempoEntrega, int tipo) {
         this.ID = ID;
         this.nombre = nombre;
-        this.precio = precio;
         this.precioCompra = precioCompra;
+        this.precio = precio;
+        this.espacioMaximo = espacioMaximo;
         this.cantidadDisponible = cantidadDisponible;
         this.cantidadMinima = cantidadMinima;
         this.diaReabastecimiento = diaReabastecimiento;
         this.tiempoEntrega = tiempoEntrega;
-        this.espacioMaximo = espacioMaximo;
         this.tipo = tipo;
     }
 
+    /** Metodos propios de Java*/
     public int getID() {
         return ID;
     }
@@ -96,6 +98,7 @@ public abstract class Producto {
         this.espacioMaximo = espacioMaximo;
     }
 
+    /** Metodos propios del autor*/
     public boolean alerta(){
         return cantidadDisponible<cantidadMinima;
     }
@@ -118,6 +121,6 @@ public abstract class Producto {
                 "Dia de reabastecimiento: " + diaReabastecimiento + "\n"+
                 "Tiempo de entrega: " + tiempoEntrega + " dias"+"\n"+
                 "Espacio maximo: " + espacioMaximo + "\n"+
-                "Tipo (1)Nacinal, (2)Internacional: "+ tipo;
+                "Tipo (1)Nacional, (2)Internacional: "+ tipo;
     }
 }
