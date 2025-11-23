@@ -6,12 +6,13 @@ public class Empresa {
     /** Creacion de los atributos*/
     private List<Producto> productos;
     private double presupuesto;
-
+     /**Constructor*/
     public Empresa( double presupuesto) {
         this.productos = new ArrayList<>();
         this.presupuesto = presupuesto;
 
     }
+    /** Metodos propios del autor*/
     public boolean estaVacio() {
         return productos.isEmpty();
     }
@@ -166,9 +167,9 @@ public class Empresa {
 
         Producto nuevo=null;
         if (tipo==1){
-            nuevo = new ProductoNacional(Id,nombre,precioVenta,precioCompra,cantidadMaxima,cantidadDisponible,cantidadMinima,diaReabastecimiento,tiempoEntrega,tipo);
+            nuevo = new ProductoNacional(Id,nombre,precioCompra,precioVenta,cantidadMaxima,cantidadDisponible,cantidadMinima,diaReabastecimiento,tiempoEntrega,tipo);
         } else if (tipo==2) {
-            nuevo = new ProductoInternacional(Id,nombre,precioVenta,precioCompra,cantidadMaxima,cantidadDisponible,cantidadMinima,diaReabastecimiento,tiempoEntrega,tipo);
+            nuevo = new ProductoInternacional(Id,nombre,precioCompra,precioVenta,cantidadMaxima,cantidadDisponible,cantidadMinima,diaReabastecimiento,tiempoEntrega,tipo);
         }
 
         productos.set(indice,nuevo);
