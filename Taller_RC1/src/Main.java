@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /** Creacion del objeto*/
     Empresa empresa = new Empresa( 5000.0);
     Scanner sc = new Scanner(System.in);
 
     int opcion;
-
+    /** Menu del inventario*/
     do{
         System.out.println("===INVENTARIO===");
         System.out.println("1. Registrar producto");
@@ -22,7 +23,8 @@ public class Main {
         opcion = sc.nextInt();
 
         switch(opcion){
-            case 1:
+
+            case 1: /** Registrar el prodcuto*/
                 System.out.println("REGISTRAR PRODUCTO");
                 System.out.println("Ingrese el Id del producto: ");
                 int Id= sc.nextInt();
@@ -64,26 +66,28 @@ public class Main {
 
 
                 if(tipo==1){
-                    empresa.registarProducto(new ProductoNacional(Id,nombre,precio,precioCompra,cantidadDisponible,cantidadMinima,diaReabastecimiento, tiempoEntrega, espacioMaximo,tipo));
+                    empresa.registarProducto(new ProductoNacional(Id,nombre,precioCompra,precio,espacioMaximo,cantidadDisponible,cantidadMinima,diaReabastecimiento, tiempoEntrega,tipo));
                 }else if(tipo==2) {
-                    empresa.registarProducto(new ProductoInternacional(Id,nombre,precio,precioCompra,cantidadDisponible,cantidadMinima,diaReabastecimiento, tiempoEntrega, espacioMaximo,tipo));
+                    empresa.registarProducto(new ProductoInternacional(Id,nombre,precioCompra,precio,espacioMaximo,cantidadDisponible,cantidadMinima,diaReabastecimiento, tiempoEntrega,tipo));
                 }
 
                 break;
-            case 2:
+
+            case 2:/** Mostrar en lista los productos*/
                 empresa.mostrarProductosConAlertas();
 
                 break;
-            case 3:
+            case 3:/** Editar producto*/
                 if (empresa.estaVacio()) {
                     System.out.println("No se han registrado productos aún.");
                     break;
                 }
                 System.out.println("Ingrese el Id del producto a editar:");
                 int idEditar= sc.nextInt();
+                sc.nextLine();
                 empresa.editar(idEditar,sc);
                 break;
-            case 4:
+            case 4:/** Eliminar producto*/
                 if (empresa.estaVacio()) {
                     System.out.println("No se han registrado productos aún.");
                     break;
@@ -93,7 +97,7 @@ public class Main {
                 sc.nextLine();
                 empresa.eliminar(idEliminar);
                 break;
-            case 5:
+            case 5:/** Vender producto*/
                 if (empresa.estaVacio()) {
                     System.out.println("No se han registrado productos aún.");
                     break;
@@ -104,7 +108,7 @@ public class Main {
                 int cantidadVender=sc.nextInt();
                 empresa.vender(id,cantidadVender);
                 break;
-            case 6:
+            case 6:/** Reabastecer producto*/
                 if (empresa.estaVacio()) {
                     System.out.println("No se han registrado productos aún.");
                     break;
@@ -117,7 +121,7 @@ public class Main {
                 int diaActual= LocalDate.now().getDayOfMonth();
                 empresa.reabastecer(idReabastecer,cantidadReabastecer,diaActual);
                 break;
-            case 7:
+            case 7:/** Salir del sistema*/
                 System.out.println("Saliendo del sistema...");
                 break;
             default:
